@@ -19,8 +19,6 @@ jobs:
       - name: Build scripts
         run: ./scripts/buildprod.sh    
 
-  setup-gcloud:
-    steps:
       - id: 'auth'
         uses: 'google-github-actions/auth@v2'
         with:

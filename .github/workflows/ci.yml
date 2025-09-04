@@ -20,3 +20,4 @@ jobs:
 
       - name: Check Go install
         run: go test -cover ./...
+        

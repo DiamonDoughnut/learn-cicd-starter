@@ -12,7 +12,7 @@ func TestHandlerReadiness(t *testing.T) {
 
 	handlerReadiness(w, req)
 
-	if w.Code != http.StatusOK + 1 {
+	if w.Code != http.StatusOK {
 		t.Errorf("expected status %d, got %d", http.StatusOK, w.Code)
 	}
 

@@ -21,6 +21,13 @@ jobs:
       - name: Check Go install
         run: go test -cover ./...
 
+      - name: Install gosec
+        run: go install github.com/securego/gosec/v2/cmd/gosec@latest  
+
+      - name: Run gosec
+        run: gosec ./...  
+
+  style:
     name: Style
     runs-on: ubuntu-latest
 
@@ -33,6 +40,11 @@ jobs:
         with:
           go-version: "1.23.0"
 
-      - name: format style
-        run: test -z $(go fmt ./...)           
+      - name: Format style
+        run: test -z $(go fmt ./...)   
 
+      - name: Install staticcheck
+        run: go install honnef.co/go/tools/cmd/staticcheck@latest
+
+      - name: Lint project
+        run: staticcheck ./...             
